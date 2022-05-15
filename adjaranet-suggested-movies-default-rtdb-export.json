@@ -1,0 +1,28 @@
+{
+  "suggestedMovies": [
+    {
+      "id":0,
+      "name": "1883",
+      "src": "./assets/sliderPhotos/1883.jpg",
+      "style": { "objectPosition": "0% 25%" }
+    },
+    {
+      "id": 1,
+      "name": "Blacklight",
+      "src": "./assets/sliderPhotos/blacklight.jpg",
+      "style": { "objectPosition": "0% 30%" }
+    },
+    {
+      "id": 2,
+      "name": "Death On The Nile",
+      "src": "./assets/sliderPhotos/death_on_the_nile.jpg",
+      "style": {}
+    },
+    {
+      "id": 3,
+      "name": "Doctor Strange",
+      "src": "./assets/sliderPhotos/doctor_strange.jpg",
+      "style": { "objectPosition": "0% 9%" }
+    }
+  ]
+}

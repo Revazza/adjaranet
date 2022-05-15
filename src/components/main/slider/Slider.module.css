@@ -1,0 +1,62 @@
+
+
+.wrapper{
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+.control{
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    z-index: 2;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.control:hover{
+    transition: 300ms;
+    background-color: rgba(179, 176, 176, 0.151);
+}
+
+.control img{
+    height: 180px;
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#prev{
+    transform: rotate(180deg);
+}
+#next{
+    right: 0px;
+}
+
+.carousel_slide{
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
+    overflow-y: hidden;
+    /* overflow: hidden; */
+}
+
+.img_wrapper{
+    width: 100%;
+    height: inherit;
+}
+
+.carousel_slide img{
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+
+
