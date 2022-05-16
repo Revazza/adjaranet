@@ -3,33 +3,32 @@ import useFetch from "../../hooks/useFetch";
 import LoadingUI from "../../UI/LoadingUI";
 
 import classes from "./Slider.module.css";
+import SliderLayout from "./SliderLayout";
 
 function Slider() {
-  const ref = useRef(null);
-  const [counter, setCounter] = useState(1);
-  const [carouselStyle, setCarouselStyle] = useState("");
+  const [counter, setCounter] = useState(0);
   const [data, setData] = useState(null);
 
   const { responseData, error, isLoading } = useFetch(
     "https://adjaranet-suggested-movies-default-rtdb.firebaseio.com/suggestedMovies.json"
   );
 
+
   useEffect(() => {
     if (responseData !== null && data === null) {
       setData(responseData);
-      console.log("io am");
     }
   }, [responseData]);
 
-  useEffect(() => {
-    setCarouselStyle(`translateX(${-ref.current.clientWidth * counter})`);
-  }, [counter]);
-
   const prevBtnClickHandler = () => {
+    if(counter === 0)
+      return;
     setCounter((prevState) => --prevState);
   };
 
   const nextBtnClickHandler = () => {
+    if(counter + 1 === data.length)
+      return;
     setCounter((prevState) => ++prevState);
   };
 
@@ -51,24 +50,8 @@ function Slider() {
         <img src="./assets/sliderPhotos/next.png" alt="Next" />
       </div>
 
-      <div
-        className={classes.carousel_slide}
-        style={{ transform: carouselStyle }}
-        ref={ref}
-      >
-        {data !== null &&
-          data.map((movie) => {
-            return (
-              <div className={classes.img_wrapper} key={movie.id}>
-                <img
-                  style={movie.style}
-                  src={movie.src}
-                  alt={`${movie.name}`}
-                />
-              </div>
-            );
-          })}
-      </div>
+      <SliderLayout counter={counter} data ={data} />
+
     </div>
   );
 }
