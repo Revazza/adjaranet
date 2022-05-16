@@ -23,14 +23,24 @@ function SliderLayout(props) {
     <div className={classes.carousel_slide}>
       <div className={classes.img_wrapper} ref={ref} style={{transform:carouselStyle}}>
         {movies !== null &&
-          movies.map((movie) => {
+          movies.map((movie,index) => {
             return (
+              <React.Fragment key={movie.id}>
                 <img
-                  key={movie.id}
                   style={movie.style}
                   src={movie.src}
                   alt={`${movie.name}`}
                 />
+                <label
+                  style={{
+                    transform: `translateX(${
+                      ref.current.clientWidth * index
+                    }px)`,
+                  }}
+                >
+                  {movie.name}
+                </label>
+              </React.Fragment>
             );
           })}
       </div>

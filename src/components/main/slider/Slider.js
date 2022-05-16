@@ -13,6 +13,24 @@ function Slider() {
     "https://adjaranet-suggested-movies-default-rtdb.firebaseio.com/suggestedMovies.json"
   );
 
+  const [changeMovie,setChangeMovie] = useState(0);
+
+  useEffect( () =>{
+    if(data!== null)
+    {
+      const timer = setTimeout(() => {
+        setChangeMovie((prevState) => ++prevState);
+        if (counter + 1 === data.length)
+          setCounter(0);
+        else
+          setCounter((prevState) => ++prevState);
+      }, 5000);
+      return () =>{
+        clearTimeout(timer);
+      }
+    }
+  },[changeMovie,data,counter]);
+  
 
   useEffect(() => {
     if (responseData !== null && data === null) {
@@ -28,7 +46,10 @@ function Slider() {
 
   const nextBtnClickHandler = () => {
     if(counter + 1 === data.length)
+    {
+      setCounter(0);
       return;
+    }
     setCounter((prevState) => ++prevState);
   };
 

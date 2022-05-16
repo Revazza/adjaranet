@@ -7,6 +7,9 @@ function Main() {
   return (
     <main>
       <Slider />
+      <div className={classes.content}>
+        
+      </div>
     </main>
   )
 }
