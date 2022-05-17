@@ -1,0 +1,35 @@
+
+
+.wrapper{
+    width: 100%;
+    min-height: 40px;
+    max-height: 450px;
+}
+
+.searchBar_wrapper{
+    width: 100%;
+    display: flex;
+}
+
+.searchBar_wrapper img{
+    margin-left: 15px;
+}
+
+.searchBar_wrapper input{
+    height: 30px;
+    width: 100%;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    border: 1pt solid #1683C6;
+    font-family: 'Sora', sans-serif;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.726);
+}
+
+
+
+
+
+

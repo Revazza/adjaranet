@@ -1,0 +1,48 @@
+.result_wrapper{
+    margin-top: 10px;
+    min-height: 100px;
+    max-height: 350px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5,16.5%);
+    padding: 20px 0;
+    justify-content: space-around;
+    grid-gap: 20px;
+    overflow-y: auto;
+    background-color: rgb(253, 253, 253);
+    position: relative;
+}
+
+.result_information{
+    width: 100%;
+    height: 150px;
+    position: relative;
+    overflow-wrap: break-word;
+    cursor: pointer;
+}
+
+.result_information img{
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+.result_information p{
+    position: absolute;
+    font-family: 'Koulen', cursive;
+    color: rgb(253, 253, 253);
+    bottom: 18px;
+    left: 20px;
+    width: 80%;
+}
+
+
+.message{
+    font-family: 'Anton', sans-serif;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 31px;
+    color: #333;
+}

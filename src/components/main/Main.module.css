@@ -3,6 +3,9 @@
 
 .content{
     width: 980px;
+    margin: 0 auto;
+    position: relative;
+    top: -70px;
 }
 
 
