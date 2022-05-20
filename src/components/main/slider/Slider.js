@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import useFetch from "../../hooks/useFetch";
 import LoadingUI from "../../UI/LoadingUI";
 
@@ -9,7 +9,7 @@ function Slider() {
   const [counter, setCounter] = useState(0);
   const [data, setData] = useState(null);
 
-  const { responseData, error, isLoading } = useFetch(
+  const { responseData, isLoading } = useFetch(
     "https://adjaranet-suggested-movies-default-rtdb.firebaseio.com/suggestedMovies.json"
   );
 
@@ -36,7 +36,7 @@ function Slider() {
     if (responseData !== null && data === null) {
       setData(responseData);
     }
-  }, [responseData]);
+  }, [responseData,data]);
 
   const prevBtnClickHandler = () => {
     if(counter === 0)

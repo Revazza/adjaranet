@@ -11,7 +11,7 @@ function SliderLayout(props) {
     if (props.data !== null && movies === null) {
       setMovies(props.data);
     }
-  }, [props.data]);
+  }, [props.data,movies]);
 
   useEffect(() => {
     setCarouselStyle(

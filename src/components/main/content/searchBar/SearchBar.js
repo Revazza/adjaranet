@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import classes from "./SearchBar.module.css";
 
-import useFetch from "../../../hooks/useFetch";
 import SearchResult from "./SearchResult";
+import { useSelector } from "react-redux";
 
-function SearchBar() {
+function SearchBar(props) {
   const [movies, setMovies] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [searchWord, setSearchWord] = useState("");
 
-  const { responseData, isLoading, error } = useFetch(
-    "https://adjaranet-suggested-movies-default-rtdb.firebaseio.com/movies.json"
-  );
+  const data = useSelector( state => state.movies.list);
 
-  useEffect(() => {
-    if (responseData !== null && movies === null) {
-      setMovies(responseData);
-    }
-  }, [responseData]);
+  useEffect( () => {
+    if(data.length !== 0)
+      setMovies(data);
+  },[data])
 
   const onSearchBarFocus = () => {
     setShowResult(true);
@@ -41,7 +38,7 @@ function SearchBar() {
           onBlur={onSearchBarLoseFocus}
           onChange={searchInputHandler}
         />
-        <img src="./assets/search.png" />
+        <img src="./assets/search.png" alt="Search icon" />
       </div>
       {showResult && <SearchResult movies={movies} searchWord={searchWord} />}
     </div>

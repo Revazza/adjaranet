@@ -26,7 +26,7 @@ function SearchResult(props) {
       });
       setFilteredMovies(filterMovies);
     }
-  }, [props.searchWord]);
+  }, [props.searchWord,props.movies]);
 
   const showMessage = isInitial ? (
     <p className={classes.message}>Find Your Beloved Movie</p>
@@ -39,7 +39,7 @@ function SearchResult(props) {
       {filteredMovies.length !== 0 &&
         filteredMovies.map((movie) => (
           <CardUI className={classes.result_information} key={movie.id}>
-            <img src={movie.src} />
+            <img src={movie.src} alt={movie.name} />
             <p>{movie.name}</p>
           </CardUI>
         ))}
