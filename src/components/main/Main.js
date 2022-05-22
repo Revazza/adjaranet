@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect, useState, useTransition} from "react";
 import FilmsInEnglish from "./content/filmsInEnglish/FilmsInEnglish";
 import SearchBar from "./content/searchBar/SearchBar";
 
@@ -6,14 +6,26 @@ import classes from "./Main.module.css";
 import Slider from "./slider/Slider";
 
 import { moviesActions } from "../store";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import useFetch from "../hooks/useFetch";
+import Serials from "./content/serials/Serials";
+import PopularMovies from "./content/popularMovies/PopularMovies";
+import Channels from "./content/channels/Channels";
+import PremiereMovies from "./content/premiere/PremiereMovies";
 
 function Main() {
   const { responseData } = useFetch(
     "https://adjaranet-suggested-movies-default-rtdb.firebaseio.com/movies.json"
   );
   const dispatch = useDispatch();
+
+  const data = useSelector(state => state.movies.list);
+  const [moviesList,setMoviesList] = useState([]); 
+
+  useEffect( () =>{
+    if(data !== undefined)
+      setMoviesList(data);
+  },[data])
 
   useEffect(()=>{
     if(responseData!== null)
@@ -24,8 +36,12 @@ function Main() {
     <main>
       <Slider />
       <div className={classes.content}>
-        <SearchBar />
-        <FilmsInEnglish />
+        <SearchBar movies={moviesList} />
+        <FilmsInEnglish movies={moviesList} />
+        <Serials movies={moviesList} />
+        <PopularMovies movies={moviesList} />
+        <Channels />
+        <PremiereMovies movies={moviesList} />
       </div>
     </main>
   );

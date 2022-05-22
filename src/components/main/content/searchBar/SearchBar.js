@@ -2,19 +2,16 @@ import React, { useState, useEffect } from "react";
 import classes from "./SearchBar.module.css";
 
 import SearchResult from "./SearchResult";
-import { useSelector } from "react-redux";
 
 function SearchBar(props) {
   const [movies, setMovies] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [searchWord, setSearchWord] = useState("");
 
-  const data = useSelector( state => state.movies.list);
-
   useEffect( () => {
-    if(data.length !== 0)
-      setMovies(data);
-  },[data])
+    if(props.movies.length !== 0)
+      setMovies(props.movies);
+  },[props.movies])
 
   const onSearchBarFocus = () => {
     setShowResult(true);

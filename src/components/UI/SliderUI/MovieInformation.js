@@ -53,7 +53,12 @@ function MovieInformation(props) {
       onMouseLeave={mouseLeaveHandler}
     >
       <div id={id} className={styles.movie_wrapper}>
-        <img src={src} alt={alt} id={imageHoverID} />
+        <img
+          src={src}
+          alt={alt}
+          id={imageHoverID}
+          style={{ objectPosition: props.movie.objectPosition }}
+        />
       </div>
       {showInformation && (
         <React.Fragment>

@@ -1,0 +1,47 @@
+
+
+.wrapper{
+    width: 100%;
+    
+}
+
+.wrapper p{
+    margin-bottom: 20px;
+    font-family: 'Baumans', cursive;
+    color: gray;
+    font-size: 20px;
+}
+
+.channels{
+    display: grid;
+    grid-template-columns: repeat(5,18%);
+    grid-gap: 20px;
+}
+
+.channel{
+    height: 120px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    justify-content:center;
+    display: flex;
+    align-items: center;
+}
+
+
+.channel img{
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease 0s;
+    transform: scale(0.6);
+}
+
+.channel img:hover{
+    transition: transform 0.3s ease 0s;
+    transform: scale(0.8);
+} 
+
+
+
+
+
+
+

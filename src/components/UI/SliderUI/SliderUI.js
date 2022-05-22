@@ -12,6 +12,15 @@ function SliderUI(props) {
   const [carouselStyle, setCarouselStyle] = useState("");
 
   useEffect(() => {
+    if (props.count === 0) {
+      setCarouselStyle(
+        `translateX(0px)`
+      );
+      setCount(0);
+    }
+  }, [props.count]);
+
+  useEffect(() => {
     if (props.data !== null) {
       const arr1 = [...props.data].slice(0, 5);
       const arr2 = [...props.data].slice(5, 10);
@@ -69,12 +78,7 @@ function SliderUI(props) {
           <div className={styles.sub_carousel}>
             {fetchIsDone &&
               data[0].map((movie) => {
-                return (
-                  <MovieInformation
-                    movie={movie}
-                    key={movie.id}
-                  />
-                );
+                return <MovieInformation movie={movie} key={movie.id} />;
               })}
           </div>
           <div className={styles.sub_carousel}>

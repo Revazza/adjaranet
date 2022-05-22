@@ -3,21 +3,21 @@ import SliderUI from "../../../UI/SliderUI/SliderUI";
 
 import classes from "./FilmsInEnglish.module.css";
 
-import { useSelector } from "react-redux";
-
 function FilmsInEnglish(props) {
 
-  const movies = useSelector(state => state.movies.list);
-
-  const [allMovies,setAllMovies] = useState(null);
+  const [movies,setMovies] = useState([]);
 
   useEffect( () =>{
-    setAllMovies(movies);
-  },[movies]);
+    if(movies.length === 0)
+    {
+      const filteredArr = props.movies.filter( movie => movie.type ==="movie");
+      setMovies(filteredArr);
+    }
+  },[props.movies]);
   
   return (
     <div className={classes.wrapper}>
-      <SliderUI data={allMovies} label='English Films' />
+      <SliderUI data={movies} label='Movies In English' />
     </div>
   );
 }
