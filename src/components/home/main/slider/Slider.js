@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import useFetch from "../../hooks/useFetch";
-import LoadingUI from "../../UI/LoadingUI";
+import useFetch from "../../../hooks/useFetch";
+import LoadingUI from "../../../UI/LoadingUI";
 
 import classes from "./Slider.module.css";
 import SliderLayout from "./SliderLayout";

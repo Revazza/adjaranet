@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import classes from "./Serials.module.css";
-import SliderUI from "../../../UI/SliderUI/SliderUI";
+import SliderUI from "../../../../UI/SliderUI/SliderUI";
 
 function Serials(props) {
   const [movies,setMovies] = useState([]);

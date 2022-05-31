@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CardUI from "../CardUI";
 
+import { useDispatch } from "react-redux";
+import { watchListActions } from "../../store";
+
 import styles from "./MovieInformation.module.css";
+
 
 function MovieInformation(props) {
   const {
@@ -17,20 +21,10 @@ function MovieInformation(props) {
     lan,
   } = props.movie;
 
-  useEffect(() => {
-    let languages = "";
-    for (let language of lan) {
-      if (language === "geo") languages += "g";
-      else if (language === "eng") languages += "e";
-      else languages += "r";
-    }
-
-    setAvailableLangs(languages);
-  }, []);
-
+  
+  const dispatch = useDispatch();
   const [showInformation, setShowInformation] = useState(false);
   const [imageHoverID, setImageHoverID] = useState(``);
-  const [availableLangs, setAvailableLangs] = useState("");
 
   let leftShow = ``;
 
@@ -45,6 +39,10 @@ function MovieInformation(props) {
     setShowInformation(false);
     setImageHoverID(``);
   };
+
+  const watchLaterHandler = () =>{
+    dispatch(watchListActions.setWatchList(id));
+  }
 
   return (
     <div
@@ -67,34 +65,22 @@ function MovieInformation(props) {
           </div>
           <div className={styles.languages}>
             <div>
-              <p
-                className={
-                  availableLangs.includes("e") ? "" : `${styles.inactive}`
-                }
-              >
+              <p className={lan.includes("eng") ? "" : `${styles.inactive}`}>
                 ENG
               </p>
             </div>
             <div id={styles.middleP}>
-              <p
-                className={
-                  availableLangs.includes("g") ? "" : `${styles.inactive}`
-                }
-              >
+              <p className={lan.includes("geo") ? "" : `${styles.inactive}`}>
                 GEO
               </p>
             </div>
             <div>
-              <p
-                className={
-                  availableLangs.includes("r") ? "" : `${styles.inactive}`
-                }
-              >
+              <p className={lan.includes("rus") ? "" : `${styles.inactive}`}>
                 RUS
               </p>
             </div>
           </div>
-          <div className={styles.movie_information} id={leftShow}>
+          <section className={styles.movie_information} id={leftShow}>
             <h4>{name}</h4>
             <hr></hr>
             <div className={styles.additional_information}>
@@ -112,10 +98,10 @@ function MovieInformation(props) {
               <p>{description}</p>
             </div>
             <div className={styles.accessories}>
-              <CardUI className={styles.watch_later}>
+              <div className={styles.watch_later} onClick={watchLaterHandler}>
                 <img src="./assets/watchLater.png" />
                 <p>Watch Later</p>
-              </CardUI>
+              </div>
               <div className={styles.imbd}>
                 <CardUI className={styles.border}>
                   <p>IMDb</p>
@@ -123,7 +109,7 @@ function MovieInformation(props) {
                 <p>{imbd}</p>
               </div>
             </div>
-          </div>
+          </section>
         </React.Fragment>
       )}
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SliderUI from "../../../UI/SliderUI/SliderUI";
+import SliderUI from "../../../../UI/SliderUI/SliderUI";
 
 import classes from "./PremiereMovies.module.css";
 

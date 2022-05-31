@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SliderUI from '../../../UI/SliderUI/SliderUI';
+import SliderUI from '../../../../UI/SliderUI/SliderUI';
 import classes from './PopularMovies.module.css';
 
 function PopularMovies(props) {

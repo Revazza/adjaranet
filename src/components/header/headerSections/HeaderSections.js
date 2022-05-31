@@ -3,11 +3,19 @@ import React from 'react';
 import classes from './HeaderSections.module.css';
 
 function HeaderSections() {
+
+  const scrollToChannels = () =>{
+    window.scrollTo({
+      behavior: "smooth",
+      top:1490,
+    });
+  }
+
   return (
     <nav>
-      <div className={classes.section}>
+      <div className={classes.section} onClick={scrollToChannels}>
         <img src="./assets/television.png" />
-        <p>TV</p>
+        <p >TV</p>
       </div>
       <div className={classes.section}>
         <img src="./assets/film.png" />

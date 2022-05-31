@@ -1,18 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/header/Header';
-import Main from './components/main/Main';
+import { Route } from "react-router-dom";
+
 
 import store from './components/store';
 import {Provider} from 'react-redux';
+import Home from './pages/Home';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <Header />
-        <Main />
-      </div>
+      <Route path='/'>
+        <Home />
+        <Footer />
+      </Route>
+      <Route path='/login'>
+      </Route>
     </Provider>
   );
 }

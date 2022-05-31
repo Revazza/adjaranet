@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
     list:[]
@@ -10,7 +10,11 @@ const watchListSlice = createSlice({
     reducers:{
         setWatchList(state,action)
         {
-            state.list = [...action.payload];
+            const movieInList = state.list.find(movie => movie.id === action.payload);
+
+            if (!movieInList)
+                state.list.push({id:action.payload});
+
         }
     }
 })

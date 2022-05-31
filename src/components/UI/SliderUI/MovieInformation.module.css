@@ -55,6 +55,7 @@ h4{
 
 .inactive{
     color: rgba(255, 255, 255, 0.281);
+    color: green;
 }
 
 #middleP{

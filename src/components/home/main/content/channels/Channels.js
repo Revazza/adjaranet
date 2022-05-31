@@ -1,13 +1,18 @@
-import React,{} from "react";
+import React,{useEffect, useRef} from "react";
 
 import classes from './Channels.module.css';
 
 function Channels() {
 
-    
+  const ref = useRef();
+  
+  useEffect(()=>{
+    //Will be needed
+    const y = ref.current.offsetTop;
+  },[])
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} ref={ref} >
       <p>Channels</p>
       <div className={classes.channels}>
         <div className={classes.channel}>

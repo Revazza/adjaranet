@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import classes from "./SearchResult.module.css";
-import CardUI from "../../../UI/CardUI";
+import CardUI from "../../../../UI/CardUI";
 
 function SearchResult(props) {
   const [filteredMovies, setFilteredMovies] = useState([]);
