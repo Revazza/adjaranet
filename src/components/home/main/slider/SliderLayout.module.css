@@ -24,7 +24,7 @@
   filter: brightness(70%);
 }
 
-label {
+.movie_label {
   font-size: 34px;
   z-index: 20;
   color: black;

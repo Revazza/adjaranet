@@ -32,6 +32,7 @@ function SliderLayout(props) {
                   alt={`${movie.name}`}
                 />
                 <label
+                   className={classes.movie_label}
                   style={{
                     transform: `translateX(${
                       ref.current.clientWidth * index

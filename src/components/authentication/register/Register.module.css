@@ -1,0 +1,58 @@
+
+
+
+.input_wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto 20px auto;
+    position: relative;
+}
+.input_wrapper label{
+    margin-bottom: 6px;
+    font-family: 'Baumans', cursive;
+}
+
+.btn_wrapper{
+    width: 50%;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+
+.error_message{
+    position: absolute;
+    right: 12px;
+    top: -5px;
+    width: 50%;
+}
+
+.btn_wrapper button{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: none;
+    font-size: 19px;
+    font-family: 'Baumans', cursive;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    cursor: pointer;
+    background-color: #1683C6;
+    color: black;
+}
+
+
+
+.btn_wrapper button:disabled{
+    background-color: #ccc;
+    cursor:initial;
+}
+
+.user_message{
+    text-align: center;
+    font-size: 16px;
+    color: #ee3d3d;
+    margin-bottom: 10px;
+}
+

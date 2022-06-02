@@ -7,6 +7,14 @@ body {
   background-color: rgb(229, 229, 229);
 }
 
+.App_content{
+  position: relative;
+}
+
+.Pop_up_window{
+  position: fixed;
+}
+
 p,
 h1,
 h2,

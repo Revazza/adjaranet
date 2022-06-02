@@ -1,0 +1,21 @@
+
+
+.message{
+    width: 100%;
+    min-height: 40px;
+    background-color: gainsboro;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    padding: 0 6px;
+    overflow-wrap: break-word;
+    color: rgba(0, 0, 0, 0.842);
+}
+
+
+#error{
+    background-color:#ee3d3d;
+}
